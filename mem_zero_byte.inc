@@ -6,7 +6,7 @@
 ; vanomaniac@gmail.com
 ; flat assembler 1.73.31
 ;********************************
-mem_zero_byte:;eax-address,ecx-count word
+mem_zero_byte:;eax-address,ecx-count byte
         test ecx,ecx
           jz .exit
        .next:
