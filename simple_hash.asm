@@ -11,8 +11,9 @@
         temp equ dword[ebp]
          hin equ dword[ebp-4]
         hout equ dword[ebp-8]
-       enter 256,0
-         sub ebp,128
+        push ebp
+         sub esp,256
+         lea ebp,[esp+128]
          mov ecx,64
          mov eax,esp
         call mem_zero_dword
@@ -49,8 +50,8 @@ next_hash_text:
          nop
         loop @b
 exit_program:
-         add ebp,128
-       leave
+         lea esp,[ebp+128]
+         pop ebp
          ret
        _stop db 'STOP'
      include 'find_dword.inc'
